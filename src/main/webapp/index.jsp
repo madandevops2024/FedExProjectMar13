@@ -89,7 +89,7 @@ h1{
     
     <section id="home">
         <header>
-            <span style="font-size:64px;margin-right:10px;color:orange">Shopping Site</span>
+            <span style="font-size:64px;margin-right:10px;color:orange">Amazon Site</span>
             <ul id="menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About Us</a></li>
@@ -99,7 +99,7 @@ h1{
             </ul>
 		
         </header>
-         <h1>This Is Home -  Welcome to our Shopping Site</h1>
+         <h1>Welcome to Amazon Website</h1>
     </section>    
     <section id="about"><h1>This Is About</h1></section>
     <section id="product"><h1>This Is Product</h1></section>
