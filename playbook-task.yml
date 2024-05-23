@@ -5,11 +5,11 @@
     - name: Copy Dockerfile
       copy:
        src: Dockerfile
-       dest: /home/ec2-user/docfiles
+       dest: /home/ansadmin/docker-files
     - name: Copy WAR file
       copy:
        src: target
-       dest: /home/ec2-user/docsfiles
+       dest: /home/ansadmin/docker-files
     - name : Build image
       command: docker build -t madandevops2024/shoppingsite222 .
     - name : Push Docker Image
