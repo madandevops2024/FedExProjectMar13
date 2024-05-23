@@ -1,0 +1,16 @@
+---
+- name: Docker Image Build
+  hosts: docker
+  tasks:
+    - name: Copy Dockerfile
+      copy:
+       src: Dockerfile
+       dest: /home/ubuntu/workloads
+    - name: Copy WAR file
+      copy:
+       src: target
+       dest: /home/ubuntu/workloads
+    - name : Build image
+      command: docker build -t madandevops2024/shoppingsite222 .
+    - name : Push Docker Image
+      command: docker push madandevops2024/shoppingsite222
