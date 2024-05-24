@@ -22,4 +22,6 @@
        src: DeploymentIntoK8sCluster.yml
        dest: /home/ansadmin
    - name : K8S Deployment
-     command: kubectl apply -f DeploymentIntoK8sCluster.yml      
+     command: kubectl apply -f DeploymentIntoK8sCluster.yml
+   - name : LB Service
+     command: kubectl apply -f LB-Service.yml
