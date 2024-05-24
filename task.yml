@@ -1,6 +1,7 @@
 ---
 - name: Docker Image Build
   hosts: docker
+  become: yes
   tasks:
     - name: Copy Dockerfile
       copy:
