@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: shopping-app-container
-          image: madandevops2024/shoppingsite222
+          image: madandevops2024/shoppingsite
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
