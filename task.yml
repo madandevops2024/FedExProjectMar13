@@ -11,9 +11,9 @@
        src: target
        dest: /home/ansadmin
     - name : Build image
-      command: sudo docker build -t madandevops2024/amazonsite13 .
+      command: docker build -t madandevops2024/amazonsite13 .
     - name : Push Docker Image
-      command: sudo docker push madandevops2024/amazonsite13
+      command: docker push madandevops2024/amazonsite13
 - name: Deployment into Kubernetes Cluster
   hosts: eks
   tasks:
