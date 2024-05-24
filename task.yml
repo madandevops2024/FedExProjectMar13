@@ -11,9 +11,9 @@
        src: target
        dest: /home/ansadmin
     - name : Build image
-      command: docker build -t madandevops2024/flipkartsite20 .
+      command: docker build -t madandevops2024/flipkartsite21 .
     - name : Push Docker Image
-      command: docker push madandevops2024/flipkartsite20
+      command: docker push madandevops2024/flipkartsite21
 - name: Deployment into Kubernetes Cluster
   hosts: eks
   tasks:
