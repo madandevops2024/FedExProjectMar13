@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        label 'tomcat-node'
-    }
+    agent any
 
     tools {
         // Install the Maven version configured as "maven396" and add it to the path.
