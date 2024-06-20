@@ -1,0 +1,30 @@
+---
+- name: This is a declarative format
+  hosts: dev
+  become: yes
+  tasks:
+    - name: This is to copy passwd file to /tmp
+      copy: 
+        src: /etc/passwd
+        dest: /tmp
+        mode: 777
+    
+    - name: Create AWS
+      file:
+        path: /tmp/aws2_folder
+        state: directory
+
+- name: This is 2nd task 
+  hosts: qa
+  become: yes
+  tasks:
+    - name: Install httpd
+      yum:
+        name: httpd
+        state: present
+   
+    - name: Start apache server
+      service:
+        name: httpd
+        state: started
+        enabled: yes

@@ -1,0 +1,16 @@
+---
+- name: Usuage of variables
+  hosts: all
+  become: yes
+  vars:
+    package_name:
+      - git
+      - tree
+      - httpd
+
+  tasks:
+    - name: Intalling 3 packages using variables
+      yum:  
+        name: "{{ package_name }}"
+        update_cache: yes
+        state: present

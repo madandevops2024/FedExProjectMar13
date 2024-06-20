@@ -1,0 +1,9 @@
+---
+- yum:
+    name: git
+    state: present       
+         
+- file:
+    path: /opt/azure_dir
+    state: directory
+           

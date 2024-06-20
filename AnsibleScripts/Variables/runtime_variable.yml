@@ -1,0 +1,11 @@
+---
+- name: This playbook is used to install the Apache package
+  hosts: all
+  become: yes
+  tasks:
+    - name: Installing the package
+      yum:
+        name: "{{ package }}"
+        update_cache: yes
+        state: present
+      when: ansible_facts['os_family'] == "RedHat"

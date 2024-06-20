@@ -1,0 +1,17 @@
+---
+- name: Intalling java on ubuntu 18.04
+  hosts: all
+  become: yes
+  tasks:
+    - name: Installing Java-17
+      apt:
+        name: openjdk-17-jdk
+        update_cache: yes
+        state: present
+      when: ansible_facts['os_family'] == "Debian"
+
+    - name: Installing java-17 on amazn
+      yum:
+        name: java-17-amazon-corretto
+        state: present
+      when: ansible_facts['os_family'] == "RedHat"

@@ -1,0 +1,9 @@
+---
+- name: Intalling java on Ubuntu 18.04
+  hosts: qa
+  become: yes
+  tasks:
+    - name: Installing openjdk-8-jdk
+      apt: 
+        name: openjdk-8-jdk
+        state: present

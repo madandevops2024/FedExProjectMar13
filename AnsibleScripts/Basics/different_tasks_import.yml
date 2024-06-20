@@ -1,0 +1,12 @@
+---
+- name: This is a declarative format
+  hosts: dev
+  become: yes
+  tasks:
+    - import_tasks: task1.yml
+
+- name: This is 2nd task 
+  hosts: qa
+  become: yes
+  tasks:
+    - import_tasks: task2.yml

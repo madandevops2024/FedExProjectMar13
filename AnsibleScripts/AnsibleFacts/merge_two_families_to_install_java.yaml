@@ -1,0 +1,19 @@
+---
+- name: Intalling java on Ubuntu 18.04
+  hosts: qa
+  become: yes
+  tasks:
+    - name: Installing openjdk-8-jdk
+      apt: 
+        name: openjdk-8-jdk
+        state: present
+
+- name: Instlling java on CentOS 7.8
+  hosts: dev
+  become: yes
+  tasks:
+    - name: Installing java-1.8.0-openjdk
+      yum: 
+        name: java-1.8.0-openjdk
+        state: present
+

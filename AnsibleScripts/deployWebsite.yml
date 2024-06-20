@@ -1,0 +1,38 @@
+---
+- name: This playbook is used to install the Apache package
+  hosts: all
+  become: yes
+  tasks:  
+    - name: Installing the apache2 package
+      yum:
+        name: httpd
+        update_cache: yes
+        state: present
+      when: ansible_facts['os_family'] == "RedHat"
+    
+    - name: httpd to start service
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+      when: ansible_facts['os_family'] == "RedHat"
+      
+    - name: Installing the apache2 package
+      apt:
+        name: apache2
+        update_cache: yes
+        state: present
+      when: ansible_facts['os_family'] == "Debian"     
+   
+
+    - name: Apache2 to start service
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+      when: ansible_facts['os_family'] == "Debian"
+      
+    - name: Copying source code 
+      copy:
+        src: ./sourcecode/
+        dest: /var/www/html/

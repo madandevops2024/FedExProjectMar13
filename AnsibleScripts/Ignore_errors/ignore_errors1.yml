@@ -1,0 +1,17 @@
+---
+- name: Usuage of ignore-errors in a playbook
+  hosts: all
+  become: yes
+  tasks:
+    - copy: 
+        src: /etc/passwd45
+        dest: /tmp
+    
+    - file:
+        path: /tmp/azure
+        state: directory
+
+    - yum:
+        name: git
+        state: present
+        update_cache: yes
