@@ -1,0 +1,39 @@
+Description: Build Linux Web Server
+Parameters:
+  LatestAmiId:
+    Description: AMI Linux EC2 
+    Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
+    Default: '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2'
+Resources:
+  webserver1:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: "t2.micro"
+      ImageId: !Ref LatestAmiId
+      SecurityGroupIds: 
+        - !Ref WebServerSecurityGroup
+      Tags:
+        - Key: Name
+          Value: webserver1
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash -xe
+          yum update -y
+          yum install httpd -y
+          service httpd start
+          chkconfig httpd on
+          cd /var/www/html
+          echo "<br>" >> index.html
+          echo "<h2><b>Deployed this application using AWS CloudFormation</b></h2>" >>index.html
+  WebServerSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Enable Port 80
+      Tags:
+      - Key: Name
+        Value: webserver-sg
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: 80
+        ToPort: 80
+        CidrIp: 0.0.0.0/0

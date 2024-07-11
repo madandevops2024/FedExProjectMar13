@@ -1,0 +1,7 @@
+Resources:
+  MySNSTopic10:
+    Type: AWS::SNS::Topic
+    Properties:
+      Subscription:
+      - Endpoint: "madandevops2024@gmail.com"
+        Protocol: email
