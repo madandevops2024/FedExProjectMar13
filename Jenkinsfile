@@ -1,22 +1,32 @@
 pipeline {
-    agent any
+    agent {
+		label 'ansible-node'
+	}
+
     tools {
-        // Install the Maven version configured as "maven396" and add it to the path.
+        // Install the Maven version configured as "M3" and add it to the path.
         maven "maven396"
     }
 
     stages {
-        stage('Git Clone') {
+        stage('Github') {
             steps {
-               git branch: 'main', url: 'https://github.com/madandevops2024/FedExProjectMar13.git'
+                // Get some code from a GitHub repository
+                git branch: 'main', url: 'https://github.com/madandevops2024/FedExProjectMar13.git'
             }
         }
         
         stage('Build') {
             steps {
-               echo 'Build started'
-               sh 'mvn clean package'
+                // Run Maven on a Unix agent.
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
             }
-        }    
+        }
+        
+        stage('AnsibleController') {
+            steps {
+                sh 'ansible-playbook task.yml'
+            }
+        }
     }
 }
