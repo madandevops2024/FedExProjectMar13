@@ -9,3 +9,6 @@
         update_cache: yes
         state: present
       when: ansible_facts['os_family'] == "RedHat"
+
+#Execute above script as below:
+#ansible-playbook runtime_variable.yml --extra-vars package=tree
