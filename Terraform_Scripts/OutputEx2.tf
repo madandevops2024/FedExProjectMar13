@@ -20,6 +20,9 @@ output "instance-state" {
     value =  aws_instance.MyAwsInstance.instance_state
 }
 
-output "instance-core-count" {
-    value =  aws_instance.MyAwsInstance.cpu_core_count
+output "instance-private-ip" {
+    value =  aws_instance.MyAwsInstance.private_ip
 }
+
+//To display a sensitive value
+terraform output instance-arn
