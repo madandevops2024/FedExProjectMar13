@@ -10,7 +10,7 @@ pipeline {
         stage('Github') {
             steps {
                 // Get some code from a GitHub repository
-                git branch: 'main', url: 'https://github.com/madandevops2024/FedExProjectMar13.git'
+                git branch: 'Release', url: 'https://github.com/madandevops2024/FedExProjectMar13.git'
             }
         }
         
