@@ -89,7 +89,7 @@ h1{
     
     <section id="home">
         <header>
-		<span style="font-size:64px;margin-right:10px;color:green">Madan DevOps</span>
+		<span style="font-size:64px;margin-right:10px;color:green">Flipkart Site</span>
             <ul id="menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About Us</a></li>
